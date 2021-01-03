@@ -38,7 +38,6 @@ resource "google_kms_crypto_key" "vault_crypto_key" {
   provider        = google
   name            = "crypto-key-${var.cluster_name}-${var.cluster_id}"
   key_ring        = google_kms_key_ring.vault_keyring[0].self_link
-  rotation_period = "100000s"
   depends_on      = [google_project_service.cloudkms_api]
 }
 
